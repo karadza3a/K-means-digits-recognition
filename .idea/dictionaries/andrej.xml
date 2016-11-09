@@ -3,6 +3,7 @@
     <words>
       <w>kmeans</w>
       <w>mnist</w>
+      <w>softmax</w>
     </words>
   </dictionary>
 </component>

@@ -3,21 +3,29 @@ import pickle
 import time
 
 
+def closest_node(node, nodes):
+    nodes = np.asarray(nodes)
+    deltas = nodes - node
+    dist_2 = np.einsum('ij,ij->i', deltas, deltas)
+    return np.argmin(dist_2)
+
+
 def best_guess(image, model):
-    min_error = np.inf
-    min_label = -1
-    for label, model_image in model:
-        mse = ((model_image - image) ** 2).mean()
-        if mse < min_error:
-            min_error = mse
-            min_label = label
-    return min_label
+    images = np.array([x[1] for x in model])
+    i = closest_node(image, images)
+    return model[i][0]
 
 
 def recognize(model, images, real_labels):
     err = 0
     for i in range(len(real_labels)):
-        label = best_guess(images[i], model)
+
+        images2 = np.array([x[1] for x in model])
+        deltas = images2 - images[i]
+        dist_2 = np.einsum('ij,ij->i', deltas, deltas)
+        idx = np.argmin(dist_2)
+        label = model[idx][0]
+
         if real_labels[i] != label:
             err += 1
 
