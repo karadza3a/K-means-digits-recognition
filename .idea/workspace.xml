@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbb30c31-dfbd-45a4-873e-9353e0acb8f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nn_learn.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nn_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmeans.pickle" afterPath="$PROJECT_DIR$/kmeans.pickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing.pickle" afterPath="$PROJECT_DIR$/testing.pickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/training.pickle" afterPath="$PROJECT_DIR$/training.pickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/andrej.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/andrej.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nn.pickle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_loading.py" afterPath="$PROJECT_DIR$/data_loading.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmeans_learn.py" afterPath="$PROJECT_DIR$/kmeans_learn.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmeans_test.py" afterPath="$PROJECT_DIR$/kmeans_test.py" />
     </list>
     <ignored path="MS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kmeans_test.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kmeans_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kmeans_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-97">
@@ -117,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data_loading.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="data_loading.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data_loading.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -145,11 +138,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/data_loading.py" />
         <option value="$PROJECT_DIR$/nn_test.py" />
         <option value="$PROJECT_DIR$/kmeans_learn.py" />
         <option value="$PROJECT_DIR$/kmeans_test.py" />
         <option value="$PROJECT_DIR$/nn_learn.py" />
+        <option value="$PROJECT_DIR$/data_loading.py" />
       </list>
     </option>
   </component>
@@ -566,14 +559,21 @@
       <option name="project" value="LOCAL" />
       <updated>1478609806151</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="kmeans 18% / nn 9 %&#10;">
+      <created>1478650151974</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1478650151974</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="696" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20516963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20516963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968404" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -606,7 +606,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial" />
+    <MESSAGE value="kmeans 18% / nn 9 %&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="kmeans 18% / nn 9 %&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -713,16 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_loading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/site-packages/scipy/spatial/distance.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-118">
@@ -791,6 +782,16 @@
           <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_loading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
