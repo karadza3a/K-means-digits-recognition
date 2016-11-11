@@ -2,6 +2,7 @@
   <dictionary name="andrej">
     <words>
       <w>kmeans</w>
+      <w>maxout</w>
       <w>mnist</w>
       <w>softmax</w>
     </words>

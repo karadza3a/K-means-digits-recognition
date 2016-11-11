@@ -7,10 +7,11 @@ def train(images, real_labels):
     nn = Classifier(
         layers=[
             Layer("Rectifier", units=20),
-            Layer("Softmax", units=10)
-        ],
-        learning_rate=0.02,
-        n_iter=10)
+            Layer("Rectifier", units=15),
+            Layer("Rectifier", units=20),
+            Layer("Softmax", units=10)],
+        learning_rate=0.01,
+        n_iter=25)
     nn.fit(images, real_labels)
     return nn
 
@@ -31,8 +32,11 @@ def main():
     with open('testing.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
+    start_time = time.time()
     score = model.score(images, real_labels)
+    print("--- %s seconds ---" % (time.time() - start_time))  #
     print(score)
+
 
 if __name__ == '__main__':
     main()
