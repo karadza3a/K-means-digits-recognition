@@ -31,7 +31,8 @@ def main():
     arr = []
 
     for i in range(len(centroid)):
-        arr.append((input_labels[i], centroid[i]))
+        if input_labels[i] >= 0:  # allows user to skip a bad centroid
+            arr.append((input_labels[i], centroid[i]))
 
     with open('kmeans.pickle', 'wb') as f:
         pickle.dump(arr, f)

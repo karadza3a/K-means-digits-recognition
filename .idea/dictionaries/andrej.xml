@@ -4,6 +4,7 @@
       <w>kmeans</w>
       <w>maxout</w>
       <w>mnist</w>
+      <w>scipy</w>
       <w>softmax</w>
     </words>
   </dictionary>
