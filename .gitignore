@@ -1,3 +1,8 @@
 .idea/*
 *.DS_Store
 *.pyc
+
+!mnist_data/.gitkeep
+!pickle_data/.gitkeep
+pickle_data/*
+mnist_data/*
