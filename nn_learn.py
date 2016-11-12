@@ -1,19 +1,24 @@
 import pickle
 from sknn.mlp import Classifier, Layer
+from sklearn.preprocessing import StandardScaler
 import time
+
+import nn_test
 
 
 def train(images, real_labels):
-    nn = Classifier(
-        layers=[
-            Layer("Rectifier", units=20),
-            Layer("Rectifier", units=15),
-            Layer("Rectifier", units=20),
-            Layer("Softmax", units=10)],
-        learning_rate=0.01,
-        n_iter=25)
+    scaler = StandardScaler()
+    scaler.fit(images)
+    images = scaler.transform(images)
+
+    nn = Classifier(layers=[
+                        Layer("Rectifier", units=50),
+                        Layer("Rectifier", units=50),
+                        Layer('Softmax', units=10)],
+                    learning_rate=0.01,
+                    n_iter=50)
     nn.fit(images, real_labels)
-    return nn
+    return nn, scaler
 
 
 def main():
@@ -21,21 +26,13 @@ def main():
         images, real_labels = pickle.load(f)
 
     start_time = time.time()
-    model = train(images, real_labels)
+    model, scaler = train(images, real_labels)
     print("--- %s seconds ---" % (time.time() - start_time))  #
 
     with open('nn.pickle', 'wb') as f:
-        pickle.dump(model, f)
+        pickle.dump((model, scaler), f)
 
-    # testing
-
-    with open('testing.pickle', 'rb') as f:
-        images, real_labels = pickle.load(f)
-
-    start_time = time.time()
-    score = model.score(images, real_labels)
-    print("--- %s seconds ---" % (time.time() - start_time))  #
-    print(score)
+    nn_test.main()
 
 
 if __name__ == '__main__':

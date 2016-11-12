@@ -1,18 +1,36 @@
+import numpy as np
 import pickle
 import time
+import sys
+
+
+def recognize(model, scaler, images, real_labels):
+    images = scaler.transform(images)
+
+    err = 0
+    matrix = np.zeros((10, 10), dtype=int)
+    for i in range(len(real_labels)):
+        score = model.predict(np.array([images[i]]))
+        label = score[0][0]
+        matrix[real_labels[i]][label] += 1
+        if real_labels[i] != label:
+            err += 1
+
+    np.savetxt(sys.stdout.buffer, matrix, delimiter=',', fmt="%d")
+    print("%d/%d => %f" % (err, len(real_labels), float(err) / len(real_labels)))
 
 
 def main():
     with open('nn.pickle', 'rb') as f:
-        model = pickle.load(f)
+        model, scaler = pickle.load(f)
 
     with open('testing.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     start_time = time.time()
-    score = model.score(images, real_labels)
+    recognize(model, scaler, images, real_labels)
     print("--- %s seconds ---" % (time.time() - start_time))  #
-    print(score)
+
 
 if __name__ == '__main__':
     main()

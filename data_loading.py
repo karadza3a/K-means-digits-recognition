@@ -15,3 +15,5 @@ data = MNIST('./mnist_data/')
 
 convert(data.load_training(), 'training.pickle')
 convert(data.load_testing(), 'testing.pickle')
+# convert(data.load_training(), 'float_training.pickle')
+# convert(data.load_testing(), 'float_testing.pickle')

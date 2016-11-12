@@ -15,7 +15,7 @@ def show_all(images):
 
 
 def main():
-    with open('kmeans_training.pickle', 'rb') as f:
+    with open('float_training.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     start_time = time.time()
