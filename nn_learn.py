@@ -12,11 +12,11 @@ def train(images, real_labels):
     images = scaler.transform(images)
 
     nn = Classifier(layers=[
-                        Layer("Rectifier", units=50),
-                        Layer("Rectifier", units=50),
-                        Layer('Softmax', units=10)],
-                    learning_rate=0.01,
-                    n_iter=50)
+        Layer("Rectifier", units=100),
+        Layer("Rectifier", units=64),
+        Layer('Softmax', units=10)],
+        learning_rate=0.001,
+        n_iter=50)
     nn.fit(images, real_labels)
     return nn, scaler
 

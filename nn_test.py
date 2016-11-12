@@ -3,6 +3,8 @@ import pickle
 import time
 import sys
 
+from utils import no_stdout
+
 
 def recognize(model, scaler, images, real_labels):
     images = scaler.transform(images)
@@ -10,7 +12,8 @@ def recognize(model, scaler, images, real_labels):
     err = 0
     matrix = np.zeros((10, 10), dtype=int)
     for i in range(len(real_labels)):
-        score = model.predict(np.array([images[i]]))
+        with no_stdout():
+            score = model.predict(np.array([images[i]]))
         label = score[0][0]
         matrix[real_labels[i]][label] += 1
         if real_labels[i] != label:

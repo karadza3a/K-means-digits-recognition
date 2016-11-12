@@ -5,12 +5,12 @@ import time
 
 
 def recognize(model, images, real_labels):
-    images2 = np.array([x[1] for x in model])
+    centroids = np.array([x[1] for x in model])
 
     err = 0
     matrix = np.zeros((10, 10), dtype=int)
     for i in range(len(real_labels)):
-        deltas = images2 - images[i]
+        deltas = centroids - images[i]
         dist_2 = np.einsum('ij,ij->i', deltas, deltas)
         idx = np.argmin(dist_2)
         label = model[idx][0]
