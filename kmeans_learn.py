@@ -15,7 +15,7 @@ def show_all(images):
 
 
 def main():
-    with open('float_training.pickle', 'rb') as f:
+    with open('pickle_data/float_training.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     start_time = time.time()
@@ -34,7 +34,7 @@ def main():
         if input_labels[i] >= 0:  # allows user to skip a bad centroid
             arr.append((input_labels[i], centroid[i]))
 
-    with open('kmeans.pickle', 'wb') as f:
+    with open('pickle_data/kmeans.pickle', 'wb') as f:
         pickle.dump(arr, f)
 
 

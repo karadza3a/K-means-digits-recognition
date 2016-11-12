@@ -22,14 +22,14 @@ def train(images, real_labels):
 
 
 def main():
-    with open('training.pickle', 'rb') as f:
+    with open('pickle_data/training.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     start_time = time.time()
     model, scaler = train(images, real_labels)
     print("--- %s seconds ---" % (time.time() - start_time))  #
 
-    with open('nn.pickle', 'wb') as f:
+    with open('pickle_data/pickle_data/nn.pickle', 'wb') as f:
         pickle.dump((model, scaler), f)
 
     nn_test.main()

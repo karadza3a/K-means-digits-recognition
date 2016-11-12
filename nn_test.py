@@ -24,10 +24,10 @@ def recognize(model, scaler, images, real_labels):
 
 
 def main():
-    with open('nn.pickle', 'rb') as f:
+    with open('pickle_data/nn.pickle', 'rb') as f:
         model, scaler = pickle.load(f)
 
-    with open('testing.pickle', 'rb') as f:
+    with open('pickle_data/testing.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     start_time = time.time()

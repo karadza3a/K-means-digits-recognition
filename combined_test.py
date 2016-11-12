@@ -32,7 +32,7 @@ def recognize_part(model, scaler, images, real_labels, used_labels):
 
 def test_model(name, used_labels, images, real_labels):
 
-    with open('nn-%s.pickle' % name, 'rb') as f:
+    with open('pickle_data/nn-%s.pickle' % name, 'rb') as f:
         model, scaler = pickle.load(f)
 
     images, real_labels = filter_by_label(images, real_labels, used_labels)
@@ -76,16 +76,16 @@ def test_combined(images, real_labels, model_kmeans, model358, model479):
 
 
 def main():
-    with open('float_testing.pickle', 'rb') as f:
+    with open('pickle_data/float_testing.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
     # test_model("358", [3, 5, 8], images, real_labels)
     # test_model("479", [4, 7, 9], images, real_labels)
 
-    with open('kmeans.pickle', 'rb') as f:
+    with open('pickle_data/kmeans.pickle', 'rb') as f:
         model_kmeans = pickle.load(f)
-    with open('nn-358.pickle', 'rb') as f:
+    with open('pickle_data/nn-358.pickle', 'rb') as f:
         model358 = pickle.load(f)
-    with open('nn-479.pickle', 'rb') as f:
+    with open('pickle_data/nn-479.pickle', 'rb') as f:
         model479 = pickle.load(f)
 
     start_time = time.time()

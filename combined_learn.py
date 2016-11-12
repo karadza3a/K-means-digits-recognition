@@ -34,12 +34,12 @@ def train_model(name, used_labels, images, real_labels):
     model, scaler = train(images, real_labels, used_labels)
     print("--- %s seconds ---" % (time.time() - start_time))  #
 
-    with open('nn-%s.pickle' % name, 'wb') as f:
+    with open('pickle_data/nn-%s.pickle' % name, 'wb') as f:
         pickle.dump((model, scaler), f)
 
 
 def main():
-    with open('float_training.pickle', 'rb') as f:
+    with open('pickle_data/float_training.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     train_model("358", [3, 5, 8], images, real_labels)

@@ -13,7 +13,7 @@ def convert(loaded_data, filename):
 
 data = MNIST('./mnist_data/')
 
-convert(data.load_training(), 'training.pickle')
-convert(data.load_testing(), 'testing.pickle')
-# convert(data.load_training(), 'float_training.pickle')
-# convert(data.load_testing(), 'float_testing.pickle')
+convert(data.load_training(), 'pickle_data/training.pickle')
+convert(data.load_testing(), 'pickle_data/testing.pickle')
+# convert(data.load_training(), 'pickle_data/float_training.pickle')
+# convert(data.load_testing(), 'pickle_data/float_testing.pickle')
