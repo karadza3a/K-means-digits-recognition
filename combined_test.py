@@ -3,7 +3,6 @@ import pickle
 import sys
 import time
 
-
 # this will also map each label to index in 'used_labels' list
 from utils import no_stdout
 
@@ -14,13 +13,14 @@ def filter_by_label(images, real_labels, used_labels):
     return images, real_labels
 
 
-def recognize_part(model, scaler, images, real_labels, used_labels):
+def test_recognize_part(model, scaler, images, real_labels, used_labels):
     images = scaler.transform(images)
 
     err = 0
     matrix = np.zeros((len(used_labels), len(used_labels)), dtype=int)
     for i in range(len(real_labels)):
-        score = model.predict(np.array([images[i]]))
+        with no_stdout():
+            score = model.predict(np.array([images[i]]))
         label = score[0][0]
         matrix[real_labels[i]][label] += 1
         if real_labels[i] != label:
@@ -31,14 +31,13 @@ def recognize_part(model, scaler, images, real_labels, used_labels):
 
 
 def test_model(name, used_labels, images, real_labels):
-
     with open('pickle_data/nn-%s.pickle' % name, 'rb') as f:
         model, scaler = pickle.load(f)
 
     images, real_labels = filter_by_label(images, real_labels, used_labels)
 
     start_time = time.time()
-    recognize_part(model, scaler, images, real_labels, used_labels)
+    test_recognize_part(model, scaler, images, real_labels, used_labels)
     print("--- %s seconds ---" % (time.time() - start_time))  #
 
 
@@ -76,7 +75,7 @@ def test_combined(images, real_labels, model_kmeans, model358, model479):
 
 
 def main():
-    with open('pickle_data/float_testing.pickle', 'rb') as f:
+    with open('pickle_data/testing.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
     # test_model("358", [3, 5, 8], images, real_labels)
     # test_model("479", [4, 7, 9], images, real_labels)

@@ -39,7 +39,7 @@ def train_model(name, used_labels, images, real_labels):
 
 
 def main():
-    with open('pickle_data/float_training.pickle', 'rb') as f:
+    with open('pickle_data/training.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     train_model("358", [3, 5, 8], images, real_labels)

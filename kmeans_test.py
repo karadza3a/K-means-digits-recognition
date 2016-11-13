@@ -24,7 +24,7 @@ def recognize(model, images, real_labels):
 
 
 def main():
-    with open('pickle_data/float_testing.pickle', 'rb') as f:
+    with open('pickle_data/testing.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     with open('pickle_data/kmeans.pickle', 'rb') as f:

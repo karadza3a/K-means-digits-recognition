@@ -3,8 +3,6 @@ from sknn.mlp import Classifier, Layer
 from sklearn.preprocessing import StandardScaler
 import time
 
-import nn_test
-
 
 def train(images, real_labels):
     scaler = StandardScaler()
@@ -29,10 +27,8 @@ def main():
     model, scaler = train(images, real_labels)
     print("--- %s seconds ---" % (time.time() - start_time))  #
 
-    with open('pickle_data/pickle_data/nn.pickle', 'wb') as f:
+    with open('pickle_data/nn.pickle', 'wb') as f:
         pickle.dump((model, scaler), f)
-
-    nn_test.main()
 
 
 if __name__ == '__main__':

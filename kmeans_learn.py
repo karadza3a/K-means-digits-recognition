@@ -15,7 +15,7 @@ def show_all(images):
 
 
 def main():
-    with open('pickle_data/float_training.pickle', 'rb') as f:
+    with open('pickle_data/training.pickle', 'rb') as f:
         images, real_labels = pickle.load(f)
 
     start_time = time.time()
@@ -23,6 +23,9 @@ def main():
     centroid, index_labels = scipy.cluster.vq.kmeans2(images, k, minit='matrix', iter=100)
     print("--- %s seconds ---" % (time.time() - start_time))  #
 
+    print("Label the digits you see separated by space with no trailing whitespace.")
+    print("If a digit is completely blurred, write -1.")
+    print("Close the graph window when done.")
     show_all(centroid)
 
     input_labels_string = input()
